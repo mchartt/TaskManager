@@ -1,0 +1,48 @@
+<section id="tasks">
+    <header>
+        <h2> {{ name }}'s Tasks </h2>
+
+        <menu>
+            @if (!isAddingTask) {
+                <button (click)="onAddTask()"> Add Task </button>
+            }
+        </menu>
+    </header>
+
+    @if (isAddingTask) {
+        <form class="new-task" (submit)="onSubmitTask(titleInput.value, summaryInput.value, createdAtInput.value, dueDateInput.value); titleInput.value=''; summaryInput.value=''; createdAtInput.value=today; dueDateInput.value=''; $event.preventDefault()">
+            <div class="control">
+                <label for="title">Title</label>
+                <input id="title" #titleInput type="text" required />
+            </div>
+
+            <div class="control">
+                <label for="summary">Summary</label>
+                <textarea id="summary" #summaryInput rows="3"></textarea>
+            </div>
+
+            <div class="control">
+                <label for="createdAt">Data Immissione</label>
+                <input id="createdAt" #createdAtInput type="date" [value]="today" required />
+            </div>
+
+            <div class="control">
+                <label for="dueDate">Deadline Completamento</label>
+                <input id="dueDate" #dueDateInput type="date" required />
+            </div>
+
+            <p class="form-actions">
+                <button type="button" class="cancel" (click)="onCancelAddTask()">Cancel</button>
+                <button type="submit">Save</button>
+            </p>
+        </form>
+    }
+
+    <ul>
+        @for (task of selectedUserTasks; track task.id) {
+            <li> 
+                <app-task [task]="task" (complete)="onCompleteTasks($event)"> </app-task>
+            </li>
+        }
+    </ul>
+</section>

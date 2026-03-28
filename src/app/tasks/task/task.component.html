@@ -1,0 +1,12 @@
+<article>
+    <h2> {{task.title }}  </h2>
+    <p class="dates">
+        <span>Immissione: {{ formatDate(task.createdAt) }}</span>
+        <span>Deadline: {{ formatDate(task.dueDate) }}</span>
+    </p>
+    <p class="countdown">{{ daysLeftLabel }}</p>
+    <p> {{task.summary}} </p>
+    <p class="actions"> 
+        <button (click)="onCompleteTask()" > Complete </button>
+    </p>
+</article>
