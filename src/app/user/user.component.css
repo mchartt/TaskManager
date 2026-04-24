@@ -1,6 +1,6 @@
 div {
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
 
@@ -17,13 +17,15 @@ button {
   width: 100%;
   min-width: 10rem;
   text-align: left;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
 button:hover,
 button:active,
 .active {
   background-color: #9965dd;
-  color: #150722;
+  color: #f2e9ff;
+  transform: scale(1.02);
 }
 
 img {
@@ -31,6 +33,14 @@ img {
   object-fit: contain;
   border-radius: 50%;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.active img,
+button:hover img {
+  border-color: #c084fc;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.6);
 }
 
 span {

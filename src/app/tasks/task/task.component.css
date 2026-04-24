@@ -1,7 +1,16 @@
 article {
   padding: 1rem;
   color: #25113d;
-  background-color: #bf9ee5;
+  background: linear-gradient(160deg, #caa8f0 0%, #b48ad8 100%);
+  border-radius: 10px;
+  border-left: 4px solid #7c3aed;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -22,9 +31,25 @@ h2 {
   margin: 0.6rem 0 0;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: #53218f;
   color: #f2e9ff;
   font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.countdown-safe {
+  background: #166534;
+}
+
+.countdown-warning {
+  background: #92400e;
+}
+
+.countdown-urgent {
+  background: #991b1b;
+}
+
+.countdown-unknown {
+  background: #53218f;
 }
 
 .actions {
@@ -42,11 +67,15 @@ h2 {
   padding: 0.5rem 1.5rem;
   border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #4a0774;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  background-color: #5800cc;
+  box-shadow: 0 2px 10px rgba(88, 0, 204, 0.5);
+}
+
+.actions button:active {
+  transform: scale(0.96);
 }

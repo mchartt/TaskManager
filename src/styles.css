@@ -1,4 +1,17 @@
-/* You can add global styles to/* You can add global styles to this file, and also import other style files */
+/* Global styles */
+:root {
+  --color-primary: #7c3aed;
+  --color-primary-light: #9965dd;
+  --color-primary-dark: #5800cc;
+  --color-surface-0: #0b0519;
+  --color-surface-1: #181023;
+  --color-surface-2: #2f2146;
+  --color-surface-3: #3a2c54;
+  --color-surface-4: #433352;
+  --color-text: #c3b3d8;
+  --color-text-bright: #f2e9ff;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,9 +22,32 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #181023, #0b0519);
-  color: #c3b3d8;
+  background:
+    radial-gradient(ellipse at top left, #1e0d33 0%, #120820 50%, #080313 100%),
+    linear-gradient(160deg, #1a0b2e 0%, #0b0519 100%);
+  background-blend-mode: overlay;
+  color: var(--color-text);
   margin: 0;
   padding: 0;
-  height: 100%;
-} /* this file, and also import other style files */
+  min-height: 100%;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-light);
+}
