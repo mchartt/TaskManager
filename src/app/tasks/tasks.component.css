@@ -4,6 +4,7 @@
   max-height: 60vh;
   overflow: auto;
   background-color: #3a2c54;
+  box-shadow: 0 -3px 0 0 var(--color-primary), 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 header {
@@ -29,16 +30,23 @@ menu {
 menu button {
   font: inherit;
   cursor: pointer;
-  background-color: #9965dd;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-light));
   border-radius: 4px;
   border: none;
   padding: 0.35rem 0.8rem;
   font-size: 0.9rem;
+  color: var(--color-text-bright);
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+menu button::before {
+  content: '+ ';
 }
 
 menu button:hover,
 menu button:active {
-  background-color: #a565dd
+  opacity: 0.85;
+  transform: scale(1.03);
 }
 
 .new-task {
@@ -69,6 +77,14 @@ menu button:active {
   border: 1px solid #6f52a6;
   border-radius: 6px;
   padding: 0.45rem 0.55rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.control input:focus,
+.control textarea:focus {
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.45);
 }
 
 .form-actions {
@@ -81,29 +97,33 @@ menu button:active {
 .form-actions button {
   font: inherit;
   cursor: pointer;
-  border: none;
   border-radius: 4px;
   padding: 0.35rem 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-actions .cancel {
-  background-color: #5c4b7c;
-  color: #f2e9ff;
+  background-color: transparent;
+  color: #c3b3d8;
+  border: 1px solid #6f52a6;
 }
 
 .form-actions button[type="submit"] {
-  background-color: #9965dd;
+  background-color: var(--color-primary);
   color: #f2e9ff;
+  border: 1px solid transparent;
 }
 
 .form-actions .cancel:hover,
 .form-actions .cancel:active {
-  background-color: #6f5a94;
+  background-color: rgba(111, 82, 166, 0.25);
+  border-color: var(--color-primary-light);
 }
 
 .form-actions button[type="submit"]:hover,
 .form-actions button[type="submit"]:active {
-  background-color: #a565dd;
+  background-color: var(--color-primary-light);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
 }
 
 ul {

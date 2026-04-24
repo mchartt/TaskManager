@@ -12,6 +12,22 @@ export class TaskComponent {
   @Input({required: true}) task !: Task;
   @Output() complete = new EventEmitter<string>();
 
+  get urgencyClass(): string {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
+    const deadline = new Date(this.task.dueDate);
+    deadline.setHours(0, 0, 0, 0);
+
+    const dayInMs = 1000 * 60 * 60 * 24;
+    const diff = Math.ceil((deadline.getTime() - now.getTime()) / dayInMs);
+
+    if (Number.isNaN(diff)) return 'countdown-unknown';
+    if (diff >= 7) return 'countdown-safe';
+    if (diff >= 3) return 'countdown-warning';
+    return 'countdown-urgent';
+  }
+
   get daysLeftLabel() {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
